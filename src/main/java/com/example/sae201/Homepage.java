@@ -95,6 +95,7 @@ public class Homepage{
 
     @FXML
     void billiothequeSequentielButton(ActionEvent event) throws IOException {
+
         FXMLLoader fxmlLoader = new FXMLLoader(Homepage.class.getResource("bibliothequeSequentiel.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load());

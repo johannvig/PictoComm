@@ -82,16 +82,14 @@
             <GridPane fx:id="gridSequentiel" prefHeight="274.0" prefWidth="581.0" style="-fx-background-color: #121247; -fx-grid-lines-visible: true;">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="10.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints maxHeight="170.8" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="132.19998779296873" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="120.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="120.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="buttonAddRow" mnemonicParsing="false" onAction="#addPictoLigne" prefHeight="113.0" prefWidth="100.0" style="-fx-background-color: #121247;" GridPane.rowIndex="2">
+                  <Button fx:id="buttonAddRow" mnemonicParsing="false" onAction="#addPictoLigne" prefHeight="113.0" prefWidth="100.0" style="-fx-background-color: #121247;" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fitHeight="113.0" fitWidth="100.0">
                            <image>
@@ -100,7 +98,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="buttonAddColumn" mnemonicParsing="false" onAction="#addPictoColonne" prefHeight="113.0" prefWidth="195.0" style="-fx-background-color: #121247;" GridPane.columnIndex="2">
+                  <Button fx:id="buttonAddColumn" mnemonicParsing="false" onAction="#addPictoColonne" prefHeight="113.0" prefWidth="195.0" style="-fx-background-color: #121247;" GridPane.columnIndex="1">
                      <graphic>
                         <ImageView fitHeight="113.0" fitWidth="100.0">
                            <image>

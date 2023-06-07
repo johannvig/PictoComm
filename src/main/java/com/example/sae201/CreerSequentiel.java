@@ -4,21 +4,23 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
+import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.PickResult;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import javafx.scene.input.PickResult;
 
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -85,6 +87,8 @@ public class CreerSequentiel {
     }
 
 
+
+
     static int indexColumn = 1;
     static int indexRow = 1;
     private void addColumnRow(boolean isColumn){
@@ -99,17 +103,21 @@ public class CreerSequentiel {
             GridPane.setRowIndex(imageView, (isColumn?i:indexRow));
         }
         if (isColumn){
-            gridSequentiel.getColumnConstraints().add(new ColumnConstraints(90));
+
+            gridSequentiel.getColumnConstraints().add(new ColumnConstraints(120));
             indexColumn= indexColumn+2;
             Button button = new Button();
-            button.setGraphic(new ImageView(new Image("E:\\test_projet\\SAE201\\src\\main\\resources\\com\\example\\sae201\\Image\\boutton.png")));
+            //button.setGraphic(new ImageView(new Image("E:\\test_projet\\SAE201\\src\\main\\resources\\com\\example\\sae201\\Image\\boutton.png")));
             GridPane.setColumnIndex(button,indexColumn-1);
             GridPane.setColumnIndex(buttonAddColumn,indexColumn );
         }else {
-            gridSequentiel.getRowConstraints().add(new RowConstraints(90));
+
+
+            gridSequentiel.getRowConstraints().add(new RowConstraints(120));
+
             indexRow= indexRow+2;
             Button button = new Button();
-            button.setGraphic(new ImageView(new Image("E:\\test_projet\\SAE201\\src\\main\\resources\\com\\example\\sae201\\Image\\boutton.png")));
+            //button.setGraphic(new ImageView(new Image("E:\\test_projet\\SAE201\\src\\main\\resources\\com\\example\\sae201\\Image\\boutton.png")));
             gridSequentiel.add(button,3,3);
             GridPane.setRowIndex(buttonAddRow, indexRow);
         }
@@ -279,4 +287,27 @@ public class CreerSequentiel {
             e.printStackTrace();
         }
     }
-}
+
+    private void handleImagePress(MouseEvent event) {
+        ImageView imageView = (ImageView) event.getSource();
+        Image image = imageView.getImage();
+        gridSequentiel.getScene().setCursor(new ImageCursor(image));
+    }
+
+    private void handleImageRelease(MouseEvent event) {
+        ImageView imageView = (ImageView) event.getSource();
+        Parent parent = imageView.getParent();
+        if (parent instanceof GridPane && parent.getId().equals("gridSequential")) {
+            System.out.println("pierre");
+            Scene scene = ((Node) event.getSource()).getScene();
+            PickResult pickResult = event.getPickResult();
+            Node intersectedNode = pickResult.getIntersectedNode();
+
+            System.out.println(intersectedNode.getClass().getName());
+
+            if (intersectedNode instanceof ImageView imageView) {
+                imageView.setImage(((ImageCursor) scene.getCursor()).getImage());
+            }
+            gridSequentiel.getScene().setCursor(Cursor.DEFAULT);
+        }
+}}
