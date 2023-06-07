@@ -194,7 +194,7 @@ public class CreerSequentiel {
         creerLaListe();
         gridPanePicto.getChildren().clear();
         if (!((listNameImage.size()/3)-1==0)){
-            for(int i=0; i<= (listNameImage.size()/3)-1;i++){
+            for(int i=0; i-1<= (listNameImage.size()/3)-1;i++){
                 System.out.println("passe");
                 for(int j=0;j<=2;j++){
                     System.out.println(j);
@@ -204,6 +204,7 @@ public class CreerSequentiel {
                     imageView.setFitWidth(50);
                     System.out.println(j);
                     gridPanePicto.add(imageView,j,i);
+
                 }
             }
         }else{

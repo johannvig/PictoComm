@@ -79,7 +79,7 @@
       </Text>
       <ScrollPane layoutX="113.0" layoutY="155.0" prefHeight="291.0" prefWidth="584.0" style="-fx-background-color: #121247;">
          <content>
-            <GridPane fx:id="gridSequentiel" prefHeight="274.0" prefWidth="581.0" style="-fx-background-color: #121247;">
+            <GridPane fx:id="gridSequentiel" prefHeight="274.0" prefWidth="581.0" style="-fx-background-color: #121247; -fx-grid-lines-visible: true;">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="10.0" />
