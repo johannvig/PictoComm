@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="900.0" style="-fx-background-color: #121247;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae201.PersonnalisationPictogramme2">
+   <children>
+      <Text fill="WHITE" layoutX="283.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personnalisation du pictogramme">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Pane layoutX="81.0" layoutY="120.0" prefHeight="332.0" prefWidth="272.0" style="-fx-background-radius: 15px; -fx-background-color: #D9D9D9;">
+         <children>
+            <Pane layoutX="15.0" layoutY="17.0" prefHeight="299.0" prefWidth="240.0" style="-fx-background-radius: 15px; -fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="44.0" fitWidth="51.0" layoutX="100.0" layoutY="128.0">
+                     <image>
+                        <Image url="@image/croixNoire2.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Text fill="WHITE" layoutX="416.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Couleur de la police">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ColorPicker fx:id="colorpickerColorFont" layoutX="586.0" layoutY="157.0" onAction="#colorpickerColorFontButton" prefHeight="25.0" prefWidth="100.0" />
+      <Button fx:id="nextPage" layoutX="803.0" layoutY="461.0" mnemonicParsing="false" onAction="#nextPageButton" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: #121247; -fx-border-radius: 5px; -fx-border-color: white;" text="Terminé" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <CheckBox fx:id="texteH" layoutX="418.0" layoutY="116.0" mnemonicParsing="false" onAction="#texteHButton" selected="true" text="Texte en haut" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </CheckBox>
+      <TextField fx:id="SizeFontTextH" layoutX="586.0" layoutY="202.0" onAction="#SizeFontTextHBox" prefHeight="25.0" prefWidth="51.0" style="-fx-background-color: #121247; -fx-border-color: white; -fx-border-radius: 5px;" />
+      <Text fill="WHITE" layoutX="646.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="px">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="415.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taille de la police">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <CheckBox fx:id="texteB" layoutX="416.0" layoutY="301.0" mnemonicParsing="false" onAction="#texteBButton" selected="true" text="Texte en bas" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </CheckBox>
+      <TextField fx:id="writeTextH" layoutX="415.0" layoutY="249.0" onAction="#writeTextHBox" prefHeight="21.0" prefWidth="341.0" promptText="Ecrivez un texte" style="-fx-background-color: #121247; -fx-border-color: white; -fx-border-radius: 5px;" />
+      <Text fill="WHITE" layoutX="416.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Couleur de la police">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ColorPicker fx:id="colorpickerTextB" layoutX="586.0" layoutY="338.0" onAction="#colorpickerTextBButton" prefHeight="25.0" prefWidth="100.0" />
+      <Text fill="WHITE" layoutX="415.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taille de la police">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="SizeFontTextB" layoutX="586.0" layoutY="382.0" onAction="#SizeFontTextBBox" prefHeight="25.0" prefWidth="51.0" style="-fx-background-color: #121247; -fx-border-color: white; -fx-border-radius: 5px;" />
+      <Text fill="WHITE" layoutX="646.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="px">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="writeTexteB" layoutX="415.0" layoutY="427.0" onAction="#writeTexteBBox" prefHeight="25.0" prefWidth="341.0" promptText="Ecrivez un texte" style="-fx-background-color: #121247; -fx-border-color: white; -fx-border-radius: 5px;" />
+      <Button fx:id="beforeArrow" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#persoPictoButton" prefHeight="27.0" prefWidth="74.0" style="-fx-background-color: #121247;" text="Button">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="67.0">
+               <image>
+                  <Image url="@image/backArrox.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</Pane>

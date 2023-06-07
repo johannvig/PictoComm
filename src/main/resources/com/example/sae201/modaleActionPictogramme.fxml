@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="208.0" prefWidth="171.0" style="-fx-background-color: #D9D9D9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae201.ModaleActionPictogramme">
+   <children>
+      <Button fx:id="closeWindow" layoutX="133.0" layoutY="5.0" mnemonicParsing="false" onAction="#closeWindowButton" prefHeight="33.0" prefWidth="38.0" style="-fx-background-color: #D9D9D9;" />
+      <Button fx:id="Edit" layoutX="21.0" layoutY="49.0" mnemonicParsing="false" onAction="#EditButton" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #D9D9D9;" />
+      <Button fx:id="Duplicate" layoutX="21.0" layoutY="103.0" mnemonicParsing="false" onAction="#DuplicateButton" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #D9D9D9;" />
+      <Button fx:id="delete" layoutX="21.0" layoutY="163.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="33.0" prefWidth="130.0" style="-fx-background-color: #D9D9D9;" />
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="31.0" layoutY="55.0">
+         <image>
+            <Image url="@image/edit.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="28.0" layoutY="110.0">
+         <image>
+            <Image url="@image/copy.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="26.0" layoutX="27.0" layoutY="165.0">
+         <image>
+            <Image url="@image/delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="26.0" layoutX="139.0" layoutY="8.0">
+         <image>
+            <Image url="@image/croixNoire.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="88.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editer">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="78.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dupliquer">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="77.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supprimer">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="900.0" style="-fx-background-color: #121247;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae201.PersonnalisationPictogramme">
+   <children>
+      <Text fill="WHITE" layoutX="283.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personnalisation du pictogramme">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="416.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taille de la bordure">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="416.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Couleur de la bordure">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ColorPicker fx:id="colorpickerP1N1" layoutX="596.0" layoutY="233.0" onAction="#colorPickerButtonN1" prefHeight="25.0" prefWidth="100.0" />
+      <CheckBox fx:id="bordureP1" layoutX="418.0" layoutY="159.0" mnemonicParsing="false" onAction="#BordureP1Button" selected="true" text="Bordure" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="couleurP1" layoutX="598.0" layoutY="156.0" mnemonicParsing="false" onAction="#couleurP1Button" selected="true" text="Couleur" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="barreP1" layoutX="763.0" layoutY="153.0" mnemonicParsing="false" onAction="#barreP1Button" selected="true" text="Barré" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </CheckBox>
+      <Text fill="WHITE" layoutX="416.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Couleur de fond">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ColorPicker fx:id="colorpickerP1N2" layoutX="596.0" layoutY="391.0" onAction="#colorpickerP1N2Button" prefHeight="25.0" prefWidth="100.0" />
+      <TextField fx:id="tailleBordureP1" layoutX="595.0" layoutY="319.0" onAction="#tailleBordureP1Box" prefHeight="25.0" prefWidth="51.0" style="-fx-background-color: #121247; -fx-border-color: white; -fx-border-radius: 5px;" />
+      <Text fill="WHITE" layoutX="655.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="px">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Button fx:id="goNextPage" layoutX="811.0" layoutY="463.0" mnemonicParsing="false" onAction="#NextButton" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #121247; -fx-border-radius: 5px; -fx-border-color: white;" text="Suivant" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Pane layoutX="91.0" layoutY="130.0" prefHeight="332.0" prefWidth="272.0" style="-fx-background-radius: 15px; -fx-background-color: #D9D9D9;">
+         <children>
+            <Pane layoutX="17.0" layoutY="17.0" prefHeight="299.0" prefWidth="240.0" style="-fx-background-radius: 15px; -fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="53.0" fitWidth="58.0" layoutX="91.0" layoutY="123.0">
+                     <image>
+                        <Image url="@image/croixNoire2.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Button fx:id="beforeArrow" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#createSequentielButton" prefHeight="35.0" prefWidth="115.0" style="-fx-background-color: #121247;" text="Button">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="85.0">
+               <image>
+                  <Image url="@image/backArrox.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</Pane>
