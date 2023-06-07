@@ -1,26 +1,21 @@
 package com.example.sae201;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.PickResult;
+import javafx.scene.input.*;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import javafx.scene.input.PickResult;
 
-import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,6 +23,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
 
 public class CreerSequentiel {
 
@@ -56,7 +53,20 @@ public class CreerSequentiel {
     private Button editTableau;
 
     @FXML
+    private ListView<String> filtreList;
+
+    @FXML
     private GridPane gridSequentiel;
+
+    @FXML
+    private CheckBox filtrePicto;
+
+    @FXML
+    private ScrollPane scrollPanesearch;
+
+    @FXML
+    private Button validerFiltre;
+
 
     @FXML
     private Button menuBurger;
@@ -68,20 +78,27 @@ public class CreerSequentiel {
     private Button settingPage;
 
     @FXML
+    private Button searchPicto2;
+
+    @FXML
     private TextField titreSequentiel;
 
     List<String> listNameImage = new ArrayList<>();
+
+    public String newValue;
+
+
 
     @FXML
     private GridPane gridPanePicto;
     private static String idButton;
     @FXML
-    void addPictoColonne(ActionEvent event) {
+    void addPictoColonne(ActionEvent event) throws IOException {
         System.out.println("hello");
         addColumnRow(true);
     }
     @FXML
-    void addPictoLigne(ActionEvent event) {
+    void addPictoLigne(ActionEvent event) throws IOException {
         System.out.println("hello2");
         addColumnRow(false);
     }
@@ -91,6 +108,7 @@ public class CreerSequentiel {
 
     static int indexColumn = 1;
     static int indexRow = 1;
+
     private void addColumnRow(boolean isColumn){
         for(int i=0; i<(isColumn?indexRow:indexColumn); i++) {
             ImageView imageView = new ImageView();
@@ -105,7 +123,7 @@ public class CreerSequentiel {
         if (isColumn){
 
             gridSequentiel.getColumnConstraints().add(new ColumnConstraints(120));
-            indexColumn= indexColumn+2;
+            indexColumn++;
             Button button = new Button();
             //button.setGraphic(new ImageView(new Image("E:\\test_projet\\SAE201\\src\\main\\resources\\com\\example\\sae201\\Image\\boutton.png")));
             GridPane.setColumnIndex(button,indexColumn-1);
@@ -115,13 +133,63 @@ public class CreerSequentiel {
 
             gridSequentiel.getRowConstraints().add(new RowConstraints(120));
 
-            indexRow= indexRow+2;
+            indexRow++;
             Button button = new Button();
             //button.setGraphic(new ImageView(new Image("E:\\test_projet\\SAE201\\src\\main\\resources\\com\\example\\sae201\\Image\\boutton.png")));
             gridSequentiel.add(button,3,3);
             GridPane.setRowIndex(buttonAddRow, indexRow);
         }
+
     }
+    private void handleImagePress(MouseEvent event) {
+        ImageView imageView = (ImageView) event.getSource();
+        Image image = imageView.getImage();
+
+        gridSequentiel.getScene().setCursor(new ImageCursor(image));
+    }
+    private void handleImageRelease(MouseEvent event) {
+        Scene scene = ((Node) event.getSource()).getScene();
+        PickResult pickResult = event.getPickResult();
+        Node intersectedNode = pickResult.getIntersectedNode();
+
+        if (intersectedNode instanceof ImageView imageView && intersectedNode.getParent() == gridSequentiel) {
+            Image img = ((ImageCursor) scene.getCursor()).getImage();
+            ImageView currentImageView = (ImageView) event.getSource();
+
+            currentImageView.setImage(imageView.getImage());
+            currentImageView.setOnMousePressed(this::handleImagePress);
+            currentImageView.setOnMouseReleased(this::handleImageRelease);
+
+            imageView.setImage(img);
+            imageView.setOnMousePressed(this::handleImagePress);
+            imageView.setOnMouseReleased(this::handleImageRelease);
+
+        }
+        gridSequentiel.getScene().setCursor(Cursor.DEFAULT);
+    }
+    private ImageView createImageView(String imageName) {
+        String imageUrl = "https://static.arasaac.org/pictograms/"+imageName+"/"+imageName+"_300.png";
+        ImageView imageView = new ImageView();
+        imageView.setFitWidth(50);
+        imageView.setFitHeight(50);
+        imageView.setOnMousePressed(this::handleImagePress);
+        imageView.setOnMouseReleased(this::handleImageRelease);
+
+        CompletableFuture.runAsync(() -> {
+            try {
+                Image image = new Image(imageUrl);
+                Platform.runLater(() -> imageView.setImage(image));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        return imageView;
+    }
+
+
+
+
 
     @FXML
     void billiothequeSequentielButton(ActionEvent event) throws IOException {
@@ -201,37 +269,27 @@ public class CreerSequentiel {
     void searchPicto2button(ActionEvent event) {
         creerLaListe();
         gridPanePicto.getChildren().clear();
-        if (!((listNameImage.size()/3)-1==0)){
-            for(int i=0; i-1<= (listNameImage.size()/3)-1;i++){
-                System.out.println("passe");
-                for(int j=0;j<=2;j++){
-                    System.out.println(j);
-                    System.out.println(listNameImage.get(i*3+j));
-                    ImageView imageView = new ImageView(new Image("https://static.arasaac.org/pictograms/"+listNameImage.get(i*3+j)+"/"+listNameImage.get(i*3+j)+"_300.png"));//
+        int rows = (int)Math.ceil(listNameImage.size() / 3.0); // calcule le nombre de lignes nécessaires
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < 3; j++) {
+                int index = i * 3 + j; // calcule l'index dans listNameImage
+
+                // vérifie si l'index est à l'intérieur des limites de listNameImage
+                if (index < listNameImage.size()) {
+                    ImageView imageView = createImageView(listNameImage.get(index));
                     imageView.setFitHeight(50);
                     imageView.setFitWidth(50);
-                    System.out.println(j);
-                    gridPanePicto.add(imageView,j,i);
-
+                    gridPanePicto.add(imageView, j, i);
                 }
             }
-        }else{
-            for(int j=0;j<=(listNameImage.size()%3);j++){
-                System.out.println("passe2");
-                ImageView imageView = new ImageView(new Image("https://static.arasaac.org/pictograms/"+listNameImage.get(listNameImage.size()/3+j)+"/"+listNameImage.get(listNameImage.size()/3+j)+"_300.png"));//
-                imageView.setFitHeight(50);
-                imageView.setFitWidth(50);
-                gridPanePicto.add(imageView,j,listNameImage.size()/3);
-            }
         }
+
 
 
         System.out.println("affiche");
 
     }
-    public static String getIdButton(){
-        return idButton;
-    }
+
     public void creerLaListe(){
         try {
             // Création de l'URL
@@ -288,26 +346,60 @@ public class CreerSequentiel {
         }
     }
 
-    private void handleImagePress(MouseEvent event) {
-        ImageView imageView = (ImageView) event.getSource();
-        Image image = imageView.getImage();
-        gridSequentiel.getScene().setCursor(new ImageCursor(image));
+    @FXML
+    void filtrePictoCheckBox(ActionEvent event) {
+
+        if (filtrePicto.isSelected()) {
+            searchPicto2.setVisible(false);
+            searchPicto.setVisible(false);
+            compteurResult.setVisible(false);
+            scrollPanesearch.setVisible(false);
+            validerFiltre.setVisible(true);
+            filtreList.setVisible(true);
+
+
+        } else {
+            searchPicto2.setVisible(true);
+            searchPicto.setVisible(true);
+            compteurResult.setVisible(true);
+            scrollPanesearch.setVisible(true);
+            validerFiltre.setVisible(false);
+            filtreList.setVisible(false);
+            //afficher un message d'erreur
+        }
+
     }
 
-    private void handleImageRelease(MouseEvent event) {
-        ImageView imageView = (ImageView) event.getSource();
-        Parent parent = imageView.getParent();
-        if (parent instanceof GridPane && parent.getId().equals("gridSequential")) {
-            System.out.println("pierre");
-            Scene scene = ((Node) event.getSource()).getScene();
-            PickResult pickResult = event.getPickResult();
-            Node intersectedNode = pickResult.getIntersectedNode();
+    @FXML
+    void validerFiltreButton(ActionEvent event) {
 
-            System.out.println(intersectedNode.getClass().getName());
+        searchPicto2.setVisible(true);
+        searchPicto.setVisible(true);
+        compteurResult.setVisible(true);
+        scrollPanesearch.setVisible(true);
+        validerFiltre.setVisible(false);
+        filtreList.setVisible(false);
+    }
 
-            if (intersectedNode instanceof ImageView imageView) {
-                imageView.setImage(((ImageCursor) scene.getCursor()).getImage());
-            }
-            gridSequentiel.getScene().setCursor(Cursor.DEFAULT);
+    @FXML
+    public void initialize() {
+        // Ajout d'éléments à filtreList
+        filtreList.getItems().addAll("Alimentation","Viande","poisson","Fruit de la mer","Fruit","Végétaux","Fruit sec","Legume","Cereal","Epices", "loisirs", "Place","Education","Temps","Divers","Mobilté","Religion","Travail","Communication","Document","Objet");
+
+        // Création d'un écouteur pour les sélections de l'utilisateur
+        filtreList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            // Faites quelque chose avec la nouvelle valeur sélectionnée
+            System.out.println("L'utilisateur a sélectionné : " + newValue);
+                    searchPicto.setText(newValue);
+                    System.out.println(searchPicto.getText());
         }
-}}
+        );
+
+    }
+
+    @FXML
+    void filtrelistView(ActionEvent event) {
+
+    }
+
+}
