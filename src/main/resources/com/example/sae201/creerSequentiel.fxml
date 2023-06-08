@@ -23,7 +23,7 @@
             <Button fx:id="Home" layoutX="13.0" layoutY="109.0" mnemonicParsing="false" onAction="#homeButton" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #33334C;" text="Button" />
             <Button fx:id="newSequentiel" layoutX="15.0" layoutY="215.0" mnemonicParsing="false" onAction="#newSequentielButton" prefHeight="55.0" prefWidth="48.0" style="-fx-background-color: #33334C;" text="Button" />
             <Button fx:id="bibliothequeSequentiel" layoutX="15.0" layoutY="319.0" mnemonicParsing="false" onAction="#billiothequeSequentielButton" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #33334C;" text="Button" />
-            <Button fx:id="settingPage" layoutX="12.0" layoutY="425.0" mnemonicParsing="false" onAction="#settingPageButton" prefHeight="62.0" prefWidth="48.0" style="-fx-background-color: #33334C;" text="Button" />
+            <Button fx:id="PdfPage" layoutX="12.0" layoutY="425.0" mnemonicParsing="false" onAction="#pdfPageButton" prefHeight="62.0" prefWidth="48.0" style="-fx-background-color: #33334C;" text="Button" />
             <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="21.0" layoutY="326.0">
                <image>
                   <Image url="@image/bibliotheque.png" />
@@ -34,9 +34,9 @@
                   <Image url="@image/creerDossier.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="432.0">
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="17.0" layoutY="441.0">
                <image>
-                  <Image url="@image/reglage.png" />
+                  <Image url="@Image/pdf1.png" />
                </image>
             </ImageView>
          </children>

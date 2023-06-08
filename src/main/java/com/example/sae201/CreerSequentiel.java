@@ -8,22 +8,42 @@ import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.*;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.json.JSONArray;
+import javafx.embed.swing.SwingFXUtils;
+
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import javax.imageio.ImageIO;
+//import javax.swing.text.Document;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import com.itextpdf.text.pdf.PdfWriter;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.image.WritableImage;
+import javafx.scene.paint.Color;
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.paint.Color;
+
 
 
 public class CreerSequentiel {
@@ -66,6 +86,9 @@ public class CreerSequentiel {
 
     @FXML
     private Button validerFiltre;
+
+    @FXML
+    private Button PdfPage;
 
 
     @FXML
@@ -402,4 +425,37 @@ public class CreerSequentiel {
 
     }
 
+
+    @FXML
+    void pdfPageButton(ActionEvent event) {
+
+        System.out.println("hello");
+
+        SnapshotParameters params = new SnapshotParameters();
+        params.setFill(Color.TRANSPARENT);  // Set the background to be transparent
+
+        WritableImage fxImage = new WritableImage((int) Math.round(gridSequentiel.getWidth()), (int) Math.round(gridSequentiel.getHeight()));
+        gridSequentiel.snapshot(params, fxImage);
+
+        BufferedImage bufferedImage = SwingFXUtils.fromFXImage(fxImage, null);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+        try {
+            ImageIO.write(bufferedImage, "png", byteArrayOutputStream);
+            byte[] imageInByte = byteArrayOutputStream.toByteArray();
+
+            com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance(imageInByte); // Utiliser le nom complet ici
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream("gridpane.pdf"));
+            document.open();
+            document.add(img);  // La méthode add fonctionnera maintenant, car img est du type correct.
+            document.close();
+        } catch (IOException | DocumentException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
+
+
