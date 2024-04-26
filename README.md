@@ -4,15 +4,14 @@
 PictoComm est une application conçue pour permettre aux personnes autistes de s'exprimer plus facilement à travers des pictogrammes. Utilisant JavaFX, cette application propose une interface intuitive permettant aux utilisateurs de sélectionner et de communiquer via des images symboliques.
 
 ## Fonctionnalités
-- **Sélection de pictogrammes :** Choisissez parmi une variété de pictogrammes classés par catégories pour exprimer des pensées, des sentiments, des besoins ou des actions.
+- **Sélection de pictogrammes :** Choisissez parmi une variété de pictogrammes classés par catégories pour exprimer des pensées, des sentiments, des besoins ou des actions en faisant une recherche via une API.
 - **Personnalisation :** Les utilisateurs peuvent personnaliser leur tableau de bord en ajoutant ou en retirant des pictogrammes.
 - **Interface adaptative :** Conçue pour être utilisée sur divers appareils, l'interface s'adapte pour une utilisation facile que ce soit sur tablette, téléphone ou ordinateur.
-- **Support multilingue :** L'application est accessible en plusieurs langues pour faciliter son utilisation dans divers contextes culturels et linguistiques.
+
 
 ## Technologies Utilisées
 - **JavaFX :** Pour la création de l'interface utilisateur.
 - **Maven :** Pour la gestion des dépendances et la construction du projet.
-- **JUnit :** Pour les tests unitaires.
 
 ## Installation
 
