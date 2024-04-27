@@ -20,16 +20,23 @@ PictoComm est une application conçue pour permettre aux personnes autistes de s
 - Maven
 
 
+<img align="center" src="https://github.com/johannvig/PictoComm/assets/102874093/470f9c40-44d1-421b-8c50-858d224325de" width="700" alt="image">
+<br>
+<br>
 
-![image](https://github.com/johannvig/PictoComm/assets/102874093/470f9c40-44d1-421b-8c50-858d224325de)
+<img align="center" src="https://github.com/johannvig/PictoComm/assets/102874093/3ad28f38-ae29-4c1d-a543-d21cf5d74761" width="700" alt="image">
+<br>
+<br>
 
+<img align="center" src="https://github.com/johannvig/PictoComm/assets/102874093/4482e7bf-3fe1-42eb-8eb4-291d1777f6f9" width="700" alt="image">
+<br>
+<br>
 
-![image](https://github.com/johannvig/PictoComm/assets/102874093/3ad28f38-ae29-4c1d-a543-d21cf5d74761)
+<img align="center" src="https://github.com/johannvig/PictoComm/assets/102874093/cc512531-532b-4538-ab71-0adabf43f131" alt="image">
+<br>
+<br>
 
+<img align="center" src="https://github.com/johannvig/PictoComm/assets/102874093/5f20562d-c22b-4ee6-b84a-2a9637b1f603" width="700" alt="image">
+<br>
+<br>
 
-![image](https://github.com/johannvig/PictoComm/assets/102874093/4482e7bf-3fe1-42eb-8eb4-291d1777f6f9)
-
-
-![image](https://github.com/johannvig/PictoComm/assets/102874093/cc512531-532b-4538-ab71-0adabf43f131)
-
-![image](https://github.com/johannvig/PictoComm/assets/102874093/5f20562d-c22b-4ee6-b84a-2a9637b1f603)
