@@ -19,7 +19,7 @@ PictoComm est une application conçue pour permettre aux personnes autistes de s
 - Java 11 ou supérieur
 - Maven
 
-<img align="center" src="https://github.com/johannvig/PictoComm/assets/102874093/4482e7bf-3fe1-42eb-8eb4-291d1777f6f9" width="700" alt="image">
+<img align="center" src="https://github.com/johannvig/PictoComm/assets/102874093/c37e327a-59ee-42ed-ba43-9d72504a3bac" width="700" alt="image">
 <br>
 <br>
 
@@ -39,6 +39,5 @@ PictoComm est une application conçue pour permettre aux personnes autistes de s
 <img align="center" src="https://github.com/johannvig/PictoComm/assets/102874093/cc512531-532b-4538-ab71-0adabf43f131" alt="image">
 <br>
 <br>
-
 
 
