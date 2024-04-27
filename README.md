@@ -4,9 +4,14 @@
 PictoComm est une application conçue pour permettre aux personnes autistes de s'exprimer plus facilement à travers des pictogrammes. Utilisant JavaFX, cette application propose une interface intuitive permettant aux utilisateurs de sélectionner et de communiquer via des images symboliques.
 
 ## Fonctionnalités
-- **Sélection de pictogrammes :** Choisissez parmi une variété de pictogrammes classés par catégories pour exprimer des pensées, des sentiments, des besoins ou des actions en faisant une recherche via une API.
-- **Personnalisation :** Les utilisateurs peuvent personnaliser leur tableau de bord en ajoutant ou en retirant des pictogrammes.
-- **Interface adaptative :** Conçue pour être utilisée sur divers appareils, l'interface s'adapte pour une utilisation facile que ce soit sur tablette, téléphone ou ordinateur.
+- **Sélection et recherche de pictogrammes** : Choisissez parmi une variété de pictogrammes classés par catégories pour exprimer des pensées, des sentiments, des besoins ou des actions, en utilisant une recherche intégrée via une API.
+- **Création et gestion de séquentiels** : Créez des séquentiels avec des pictogrammes, ajoutez ou retirez des textes, choisissez les bordures, le fond et la taille des bordures pour chaque séquentiel. Sauvegardez vos configurations en format JSON.
+- **Personnalisation et adaptabilité** : Personnalisez votre tableau de bord en ajoutant ou en retirant des pictogrammes. L'interface s'adapte à différents appareils pour une utilisation facile sur tablettes, téléphones ou ordinateurs.
+- **Interface dynamique** : Utilisez des fonctions de drag and drop pour organiser les pictogrammes, naviguer entre les pages de l'application et effectuer des recherches par mots-clés ou catégories.
+- **Sauvegarde des configurations** : Finalisez et sauvegardez les configurations de votre tableau de bord en format JSON pour une récupération et une utilisation ultérieures.
+- **Création de PDF** : Recherchez et organisez des pictogrammes, puis créez des PDF pour partager ou imprimer vos séquentiels.
+- **Navigation intuitive** : Naviguez facilement entre les différentes pages de l'application, grâce à une mise en place soignée du FXML.
+- **Conception avec Figma et FXML** : Mise en place du design de l'interface utilisateur avec Figma et adaptation de ce design en FXML pour correspondre aux attentes techniques et esthétiques.
 
 
 ## Technologies Utilisées
