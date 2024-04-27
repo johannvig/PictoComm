@@ -19,10 +19,6 @@ PictoComm est une application conçue pour permettre aux personnes autistes de s
 - Java 11 ou supérieur
 - Maven
 
-### Cloner le projet
-Pour obtenir une copie du projet sur votre machine locale, clonez le dépôt en utilisant :
-```bash
-git clone https://github.com/votre_username/pictocomm.git
 
 
 ![image](https://github.com/johannvig/PictoComm/assets/102874093/470f9c40-44d1-421b-8c50-858d224325de)
