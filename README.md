@@ -36,7 +36,7 @@ PictoComm est une application conçue pour permettre aux personnes autistes de s
 <br>
 
 
-<img align="center" src="https://github.com/johannvig/PictoComm/assets/102874093/cc512531-532b-4538-ab71-0adabf43f131" alt="image">
+<img align="center" src="https://github.com/johannvig/PictoComm/assets/102874093/cc512531-532b-4538-ab71-0adabf43f131" width="700" alt="image">
 <br>
 <br>
 
